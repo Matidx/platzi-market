@@ -27,6 +27,10 @@ public class Producto {
 
     private Boolean estado;
 
+    @ManyToOne //relación de muchos a uno
+    @JoinColumn (name = "id_categoria", insertable = false, updatable = false)//especifica una columna para unir una asociación de entidades o una colección de elementos.
+    private Categoria categoria;
+
     public Integer getIdProducto() {
         return idProducto;
     }

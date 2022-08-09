@@ -2,6 +2,7 @@ package com.platzimarket.persistence.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity //indica a una clase de java que va a representar una tabla de la BD (en este caso la tabla compras)
 @Table (name = "compras") //recibe el nombre de la tabla a la cual esta mapeando la clase
@@ -23,6 +24,14 @@ public class Compra {
     private String comentario;
 
     private String estado;
+
+    @ManyToOne
+    @JoinColumn (name = "id_cliente", insertable = false, updatable = false)
+    private Cliente cliente;
+
+    @OneToMany(mappedBy = "producto")
+    private List<ComprasProducto> productos;
+
 
     public Integer getIdCompra() {
         return idCompra;
