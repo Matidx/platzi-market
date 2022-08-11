@@ -31,6 +31,14 @@ public class Producto {
     @JoinColumn (name = "id_categoria", insertable = false, updatable = false)//especifica una columna para unir una asociación de entidades o una colección de elementos.
     private Categoria categoria;
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
     public Integer getIdProducto() {
         return idProducto;
     }
