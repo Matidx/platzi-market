@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity //indica a una clase de java que va a representar una tabla de la BD (en este caso la tabla compras_productos)
 @Table(name = "compras_productos") //recibe el nombre de la tabla a la cual esta mapeando la clase
-public class ComprasProducto {
+public class    ComprasProducto {
 
     @EmbeddedId //cuando es una clase primaria compuesta
     private ComprasProductoPK id;
@@ -16,6 +16,7 @@ public class ComprasProducto {
     private Boolean estado;
 
     @ManyToOne
+    @MapsId("idCompra")
     @JoinColumn(name = "id_compra", insertable = false, updatable = false)
     private Compra compra;
 
@@ -52,5 +53,21 @@ public class ComprasProducto {
 
     public void setEstado(Boolean estado) {
         this.estado = estado;
+    }
+
+    public Compra getCompra() {
+        return compra;
+    }
+
+    public void setCompra(Compra compra) {
+        this.compra = compra;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 }
