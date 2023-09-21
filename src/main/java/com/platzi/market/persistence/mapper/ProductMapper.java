@@ -9,7 +9,7 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {CategoryMapper.class})
+@Mapper(componentModel = "spring", uses = {CategoryMapper.class}) //spring usa CategoryMapper para hacer el mapeo de category
 public interface ProductMapper {
     @Mappings({
             @Mapping(source = "idProducto", target = "productId"),
@@ -23,7 +23,7 @@ public interface ProductMapper {
     Product toProduct(Producto producto); //mapeador de producto A product
     List<Product> toProducts(List<Producto> productos); //mapeador de Lista de productos A list of products
 
-    @InheritInverseConfiguration
+    @InheritInverseConfiguration //mapeo inverso e ignora el codigo de barras para no mostrarlo en el json
     @Mapping(target = "codigoBarras", ignore = true)
-    Producto toProducto(Product product);
+    Producto toProducto(Product product); //mapeador de product A producto
 }
