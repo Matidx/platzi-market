@@ -18,6 +18,8 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.mapstruct:mapstruct:1.3.1.Final")
+	annotationProcessor ("org.mapstruct:mapstruct-processor:1.3.1.Final")
 	runtimeOnly("com.mysql:mysql-connector-j")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
