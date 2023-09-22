@@ -25,6 +25,8 @@ public class ProductController {
         return productService.getProduct(productId)
                 .map(product -> new ResponseEntity<>(product, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        //como espera un opcional puedo usar el .map cuando encuentra el product devuelve el product y http ok
+        //cuando no encuentra nada el getProduct esquiva lo que esta adentro del .map y se ejecuta el orElse y por lo tanto envia http notFound
     }
 
     @GetMapping("/category/{categoryId}")
